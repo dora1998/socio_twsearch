@@ -1,0 +1,8 @@
+#twres {
+    width: 100%;
+    height: 100%;
+}
+#spart {
+    width: 50%;
+    min-width: 200px;
+}
