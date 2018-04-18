@@ -33,9 +33,17 @@
                     <option value="-1">授業を選択してください</option>
                 </select>
               </p>
+
+              <p>
+                対象範囲:
+                <input type="time" id="range_start" step="600" value="13:00">
+                ～
+                <input type="time" id="range_end" step="600" value="18:30">
+              </p>
+              <button type="button" class="btn btn-primary btn-lg" id="button_search">ツイート検索</button>
             </div>
         </div>
-        
+        <br>
         <p>ページの作成などは、<a href="https://twitter.com/_dorayaki_">@_dorayaki_</a>が行っています。ご意見・ご質問などはこちらまでどうぞ。</p>
     </div>
 
@@ -44,9 +52,6 @@
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
-    
-    <script src="http://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
-    <script src="js/jQAllRangeSliders-withRuler-min.js"></script>
 
     <script type="text/javascript" src="js/main.js"></script>
   </body>
