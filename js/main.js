@@ -1,11 +1,13 @@
 // 授業一覧
 var lessons = {
     0: '第1回 4/9',
-    1: '第2回 4/16'
+    1: '第2回 4/16',
+    2: '第3回 4/23'
 };
 var ldate = [];
 ldate[0] = new Date(2018, 4 - 1, 9);
 ldate[1] = new Date(2018, 4 - 1, 16);
+ldate[2] = new Date(2018, 4 - 1, 23);
 
 /* 各授業のタイミングデータ */
 var lt0 = {
@@ -16,7 +18,16 @@ var lt1 = {
     0: ["授業時間全体", "13:00", "14:30"],
     1: ["授業後", "14:30", "18:30"]
 };
+var lt2 = {
+    10: ["前回公開アサインメント紹介など", "13:00", "13:10"],
+    11: ["1. 行為が社会をつくる", "13:10", "13:15"],
+    12: [" - 行為⊂行動", "13:15", "13:27"],
+    13: [" - 行為の4類型", "13:27", "13:35"],
+    14: [" - 2種類の「合理的行為」", "13:35", "13:45"],
+    20: ["2. 合理的行為のパラドックス", "13:44", ""]
+};
 var ltiming = {
+    2: lt2,
     1: lt1,
     0: lt0
 };
@@ -73,10 +84,12 @@ function search() {
     var val_end = $('#range_end').val();
 
     var startDate = inputToDate(ldate[$select_lesson.val()], val_start);
-    var endDate = inputToDate(ldate[$select_lesson.val()], val_end);
     var searchString = "#s1tq since:" +
-        startDate.getFullYear() + "-" + ('0' + (startDate.getMonth() + 1)).slice(-2) + "-" + ('0' + startDate.getDate()).slice(-2) + "_" + ('0' + startDate.getHours()).slice(-2) + ":" + ('0' + startDate.getMinutes()).slice(-2) + ":00_JST until:" + 
-        endDate.getFullYear() + "-" + ('0' + (endDate.getMonth() + 1)).slice(-2) + "-" + ('0' + endDate.getDate()).slice(-2) + "_" + ('0' + endDate.getHours()).slice(-2) + ":" + ('0' + endDate.getMinutes()).slice(-2) + ":00_JST";
+        startDate.getFullYear() + "-" + ('0' + (startDate.getMonth() + 1)).slice(-2) + "-" + ('0' + startDate.getDate()).slice(-2) + "_" + ('0' + startDate.getHours()).slice(-2) + ":" + ('0' + startDate.getMinutes()).slice(-2) + ":00_JST";
+    if (val_end != "") {
+        var endDate = inputToDate(ldate[$select_lesson.val()], val_end);
+        searchString += " until:" + endDate.getFullYear() + "-" + ('0' + (endDate.getMonth() + 1)).slice(-2) + "-" + ('0' + endDate.getDate()).slice(-2) + "_" + ('0' + endDate.getHours()).slice(-2) + ":" + ('0' + endDate.getMinutes()).slice(-2) + ":00_JST";
+    }
 
     window.open('https://twitter.com/search?q=' + encodeURIComponent(searchString) + '&src=typd');
 }
